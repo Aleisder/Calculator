@@ -5,56 +5,90 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.calculator.R
+import androidx.fragment.app.viewModels
+import com.example.calculator.databinding.FragmentCalculatorBinding
+import com.example.calculator.viewmodel.CalculatorViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CalculatorFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CalculatorFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentCalculatorBinding
+    private val calculatorViewModel: CalculatorViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calculator, container, false)
+        binding = FragmentCalculatorBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CalculatorFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CalculatorFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        calculatorViewModel.textExpr.observe(viewLifecycleOwner) {
+            binding.tvMathExpression.text = it
+        }
+
+        calculatorViewModel.textExpr.observe(viewLifecycleOwner) {
+            when (it.length) {
+                0 -> binding.tvMathExpression.textSize = 80.0F
+                8 -> binding.tvMathExpression.textSize = 50.0F
             }
+        }
+
+        binding.apply {
+
+            //Cleaning buttons
+            btClear.setOnClickListener { clearExpression() }
+            btClearLastSign.setOnClickListener { clearLastSign() }
+
+            //Numeric buttons
+            bt0.setOnClickListener { addNum(bt0.text.toString()) }
+            bt00.setOnClickListener { addNum(bt00.text.toString()) }
+            bt1.setOnClickListener { addNum(bt1.text.toString()) }
+            bt2.setOnClickListener { addNum(bt2.text.toString()) }
+            bt3.setOnClickListener { addNum(bt3.text.toString()) }
+            bt4.setOnClickListener { addNum(bt4.text.toString()) }
+            bt5.setOnClickListener { addNum(bt5.text.toString()) }
+            bt6.setOnClickListener { addNum(bt6.text.toString()) }
+            bt7.setOnClickListener { addNum(bt7.text.toString()) }
+            bt8.setOnClickListener { addNum(bt8.text.toString()) }
+            bt9.setOnClickListener { addNum(bt9.text.toString()) }
+
+            //Fractional number button (.)
+            btDot.setOnClickListener { addDot() }
+
+            //Operation buttons
+            btMultiply.setOnClickListener { addOperation(btMultiply.text.toString()) }
+            btDifference.setOnClickListener { addOperation(btDifference.text.toString()) }
+            btSum.setOnClickListener { addOperation(btSum.text.toString()) }
+            btDivide.setOnClickListener { addOperation(btDivide.text.toString()) }
+
+            //Solve button (=)
+        }
     }
+
+    //Add the new sign to the end of expression after the touch on the button
+    private fun addNum(sign: String) {
+        calculatorViewModel.changeTextExpression(sign)
+    }
+
+    private fun clearExpression() {
+        calculatorViewModel.clearTextExpression()
+    }
+
+    private fun clearLastSign() {
+        calculatorViewModel.clearLastSign()
+    }
+
+    private fun addOperation(operation: String) {
+        calculatorViewModel.addOperation(operation)
+    }
+
+    private fun addDot() {
+        calculatorViewModel.addDot()
+    }
+
+
 }
