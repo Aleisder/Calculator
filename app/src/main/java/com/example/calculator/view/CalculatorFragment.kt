@@ -13,7 +13,7 @@ import com.example.calculator.viewmodel.CalculatorViewModel
 class CalculatorFragment : Fragment() {
 
     private lateinit var binding: FragmentCalculatorBinding
-    private val calculatorViewModel: CalculatorViewModel by viewModels()
+    private val viewModel: CalculatorViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,14 +26,20 @@ class CalculatorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        calculatorViewModel.textExpr.observe(viewLifecycleOwner) {
+
+        //textView on the top of the screen always show
+        //the math expression from ViewModel
+        viewModel.textExpr.observe(viewLifecycleOwner) {
             binding.tvMathExpression.text = it
         }
 
-        calculatorViewModel.textExpr.observe(viewLifecycleOwner) {
+
+        //math math expression gets long, the font size will be decreased
+        viewModel.textExpr.observe(viewLifecycleOwner) {
             when (it.length) {
                 0 -> binding.tvMathExpression.textSize = 80.0F
                 8 -> binding.tvMathExpression.textSize = 50.0F
+                13 -> binding.tvMathExpression.textSize = 30.0F
             }
         }
 
@@ -45,7 +51,6 @@ class CalculatorFragment : Fragment() {
 
             //Numeric buttons
             bt0.setOnClickListener { addNum(bt0.text.toString()) }
-            bt00.setOnClickListener { addNum(bt00.text.toString()) }
             bt1.setOnClickListener { addNum(bt1.text.toString()) }
             bt2.setOnClickListener { addNum(bt2.text.toString()) }
             bt3.setOnClickListener { addNum(bt3.text.toString()) }
@@ -57,37 +62,42 @@ class CalculatorFragment : Fragment() {
             bt9.setOnClickListener { addNum(bt9.text.toString()) }
 
             //Fractional number button (.)
-            btDot.setOnClickListener { addDot() }
+            //btDot.setOnClickListener { addDot() }
 
             //Operation buttons
-            btMultiply.setOnClickListener { addOperation(btMultiply.text.toString()) }
+            //btMultiply.setOnClickListener { addOperation(btMultiply.text.toString()) }
             btDifference.setOnClickListener { addOperation(btDifference.text.toString()) }
             btSum.setOnClickListener { addOperation(btSum.text.toString()) }
-            btDivide.setOnClickListener { addOperation(btDivide.text.toString()) }
+            //btDivide.setOnClickListener { addOperation(btDivide.text.toString()) }
 
             //Solve button (=)
+            btToSolve.setOnClickListener { solveTheExpression() }
         }
     }
 
     //Add the new sign to the end of expression after the touch on the button
     private fun addNum(sign: String) {
-        calculatorViewModel.changeTextExpression(sign)
+        viewModel.changeTextExpression(sign)
     }
 
     private fun clearExpression() {
-        calculatorViewModel.clearTextExpression()
+        viewModel.clearTextExpression()
     }
 
     private fun clearLastSign() {
-        calculatorViewModel.clearLastSign()
+        viewModel.clearLastSign()
     }
 
     private fun addOperation(operation: String) {
-        calculatorViewModel.addOperation(operation)
+        viewModel.addOperation(operation)
     }
 
     private fun addDot() {
-        calculatorViewModel.addDot()
+        viewModel.addDot()
+    }
+
+    private fun solveTheExpression() {
+        viewModel.toSolve()
     }
 
 

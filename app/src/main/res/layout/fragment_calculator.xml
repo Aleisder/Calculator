@@ -10,235 +10,254 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
 
-            <LinearLayout
-                android:id="@+id/ll_first_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_clear"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/circular_button"
+            android:text="@string/all_clear"
+            app:backgroundTint="@color/orange"
+            android:textSize="31sp"
+            style="@style/button_style"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_math_expression" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_clear"
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="C"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            style="@style/button_style"
+            app:backgroundTint="@color/orange"
+            android:background="@drawable/circular_button"
+            android:text="@string/percent"
+            app:layout_constraintEnd_toStartOf="@id/bt_clear_last_sign"
+            app:layout_constraintStart_toEndOf="@+id/bt_clear"
+            app:layout_constraintTop_toTopOf="@+id/bt_clear" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="%"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_clear_last_sign"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:backgroundTint="@color/orange"
+            android:background="@drawable/circular_button"
+            app:icon="@drawable/ic_backspace"
+            app:layout_constraintEnd_toStartOf="@+id/bt_divide"
+            app:layout_constraintStart_toEndOf="@+id/materialButton"
+            app:layout_constraintTop_toTopOf="@+id/bt_clear" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_clear_last_sign"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="C"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_divide"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:backgroundTint="@color/orange"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/circular_button"
+            app:icon="@drawable/ic_division"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bt_clear" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_divide"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="/"
-                    android:textSize="40sp" />
 
-            </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_7"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/circular_button"
+            android:text="@string/seven"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_clear" />
 
-            <LinearLayout
-                android:id="@+id/ll_second_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_8"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/circular_button"
+            android:text="@string/eight"
+            app:layout_constraintEnd_toStartOf="@+id/bt_9"
+            app:layout_constraintStart_toEndOf="@id/bt_7"
+            app:layout_constraintTop_toTopOf="@+id/bt_7" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_7"
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="7"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_9"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/circular_button"
+            android:text="@string/nine"
+            app:layout_constraintEnd_toStartOf="@+id/bt_multiply"
+            app:layout_constraintStart_toEndOf="@+id/bt_8"
+            app:layout_constraintTop_toTopOf="@+id/bt_7" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="8"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_multiply"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="15dp"
+            app:backgroundTint="@color/orange"
+            android:background="@drawable/circular_button"
+            app:icon="@drawable/ic_multiply"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bt_7" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="9"
-                    android:textSize="40sp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_multiply"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="*"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_4"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/circular_button"
+            android:text="@string/four"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_7" />
 
-            </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_5"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="0.25"
+            android:background="@drawable/circular_button"
+            android:text="@string/five"
+            app:layout_constraintEnd_toStartOf="@id/bt_6"
+            app:layout_constraintStart_toEndOf="@id/bt_4"
+            app:layout_constraintTop_toTopOf="@+id/bt_4" />
 
-            <LinearLayout
-                android:id="@+id/ll_third_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_6"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/circular_button"
+            android:text="@string/six"
+            app:layout_constraintEnd_toStartOf="@+id/bt_difference"
+            app:layout_constraintStart_toEndOf="@+id/bt_5"
+            app:layout_constraintTop_toTopOf="@+id/bt_4" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_4"
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="4"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_difference"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:backgroundTint="@color/orange"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/circular_button"
+            app:icon="@drawable/ic_minus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bt_4" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="5"
-                    android:textSize="40sp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="6"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_1"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/circular_button"
+            android:text="@string/one"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_4" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_difference"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="-"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_2"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/circular_button"
+            android:text="@string/two"
+            app:layout_constraintEnd_toStartOf="@id/bt_3"
+            app:layout_constraintStart_toEndOf="@+id/bt_1"
+            app:layout_constraintTop_toTopOf="@+id/bt_1" />
 
-            </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_3"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/circular_button"
+            android:text="@string/three"
+            app:layout_constraintEnd_toStartOf="@+id/bt_sum"
+            app:layout_constraintStart_toEndOf="@+id/bt_2"
+            app:layout_constraintTop_toTopOf="@+id/bt_1" />
 
-            <LinearLayout
-                android:id="@+id/ll_forth_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_sum"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:textStyle="bold"
+            android:layout_height="80dp"
+            android:layout_marginEnd="15dp"
+            app:backgroundTint="@color/orange"
+            android:background="@drawable/circular_button"
+            android:text="@string/sum"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bt_1" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_1"
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="1"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_0"
+            style="@style/button_style"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_button"
+            android:gravity="start"
+            android:text="@string/zero"
+            app:layout_constraintEnd_toEndOf="@+id/bt_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_1" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="2"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_dot"
+            style="@style/button_style"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/circular_button"
+            android:text="@string/comma"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/bt_to_solve"
+            app:layout_constraintStart_toEndOf="@+id/bt_0"
+            app:layout_constraintTop_toTopOf="@+id/bt_0" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="3"
-                    android:textSize="40sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_to_solve"
+            style="@style/button_style"
+            android:layout_marginEnd="15dp"
+            android:textStyle="bold"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:backgroundTint="@color/orange"
+            android:background="@drawable/circular_button"
+            android:text="@string/equals"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bt_0" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_sum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="+"
-                    android:textSize="40sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_fifth_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_00"
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="00"
-                    android:textSize="40sp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="0"
-                    android:textSize="40sp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_dot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="."
-                    android:textSize="40sp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_to_solve"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:text="="
-                    android:textSize="40sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_math_expression"
             android:layout_width="match_parent"
+            android:fontFamily="@font/lato_light"
             android:layout_height="200dp"
             android:layout_margin="12dp"
-            tools:text="43+346"
-            android:textColor="@color/teal_200"
-            android:textSize="75sp"
             android:gravity="end|bottom"
+            android:textSize="75sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="43+346-2"
+            android:text="@string/zero"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
