@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.CalculatorFragment">
+    tools:context=".CalculatorFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_clear"
+            android:id="@+id/bt_all_clear"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:textStyle="bold"
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_math_expression" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton"
+            android:id="@+id/btn_percent"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:textSize="35sp"
@@ -36,20 +36,20 @@
             app:backgroundTint="@color/orange"
             android:background="@drawable/circular_button"
             android:text="@string/percent"
-            app:layout_constraintEnd_toStartOf="@id/bt_clear_last_sign"
-            app:layout_constraintStart_toEndOf="@+id/bt_clear"
-            app:layout_constraintTop_toTopOf="@+id/bt_clear" />
+            app:layout_constraintEnd_toStartOf="@id/bt_backspace"
+            app:layout_constraintStart_toEndOf="@+id/bt_all_clear"
+            app:layout_constraintTop_toTopOf="@+id/bt_all_clear" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_clear_last_sign"
+            android:id="@+id/bt_backspace"
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:backgroundTint="@color/orange"
             android:background="@drawable/circular_button"
             app:icon="@drawable/ic_backspace"
             app:layout_constraintEnd_toStartOf="@+id/bt_divide"
-            app:layout_constraintStart_toEndOf="@+id/materialButton"
-            app:layout_constraintTop_toTopOf="@+id/bt_clear" />
+            app:layout_constraintStart_toEndOf="@+id/btn_percent"
+            app:layout_constraintTop_toTopOf="@+id/bt_all_clear" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bt_divide"
@@ -61,7 +61,7 @@
             android:background="@drawable/circular_button"
             app:icon="@drawable/ic_division"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/bt_clear" />
+            app:layout_constraintTop_toTopOf="@+id/bt_all_clear" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -74,7 +74,7 @@
             android:background="@drawable/circular_button"
             android:text="@string/seven"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_clear" />
+            app:layout_constraintTop_toBottomOf="@+id/bt_all_clear" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bt_8"
@@ -228,12 +228,12 @@
             android:background="@drawable/circular_button"
             android:text="@string/comma"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/bt_to_solve"
+            app:layout_constraintEnd_toStartOf="@+id/bt_calculate"
             app:layout_constraintStart_toEndOf="@+id/bt_0"
             app:layout_constraintTop_toTopOf="@+id/bt_0" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_to_solve"
+            android:id="@+id/bt_calculate"
             style="@style/button_style"
             android:layout_marginEnd="15dp"
             android:textStyle="bold"
@@ -250,14 +250,26 @@
             android:id="@+id/tv_math_expression"
             android:layout_width="match_parent"
             android:fontFamily="@font/lato_light"
-            android:layout_height="200dp"
+            android:layout_height="85dp"
             android:layout_margin="12dp"
             android:gravity="end|bottom"
             android:textSize="75sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="43+346-2"
+            app:layout_constraintTop_toBottomOf="@id/tv_last_expression"
+            tools:text="213"
             android:text="@string/zero"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_last_expression"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/lato_light"
+            android:layout_height="100dp"
+            android:layout_margin="12dp"
+            android:gravity="end|bottom"
+            android:textSize="50sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="43+346-2" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
